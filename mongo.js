@@ -1,9 +1,11 @@
 const MongoClient = require("mongodb").MongoClient;
 const assert = require("assert");
 const dboper = require("./operations");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const dbname = "conFusion";
-const url = `mongodb+srv://Ekenzy:27april2001@confusion-cesrh.mongodb.net/${dbname}?retryWrites=true&w=majority`;
+const url = process.env.DB_CONNECT;
 
 MongoClient.connect(url, (err, client) => {
   assert.equal(err, null);
