@@ -1,0 +1,27 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mongo.js",
+  "dependencies": {
+    "assert": "^2.0.0",
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "joi": "^14.3.1",
+    "jquery": "^3.5.1",
+    "mongodb": "^3.5.9",
+    "morgan": "^1.9.0",
+    "node-fetch": "^2.6.0",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon mongo.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
