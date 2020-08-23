@@ -38,35 +38,12 @@ app.set("view engine", "jade");
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser("12345-67890-09876-54321"));
-app.use(
-  session({
-    name: "session-id",
-    secret: "12345-67890-09876-54321",
-    saveUninitialized: false,
-    resave: false,
-    store: new FileStore(),
-  })
-);
+app.use(cookieParser(process.env.SECRET_KEY));
 
 app.use(passport.initialize());
-app.use(passport.session());
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-
-// Basic Authentication with Cookies
-const auth = (req, res, next) => {
-  if (!req.user) {
-    let err = new Error("You are not authenticated");
-    err.status = 401;
-    return next(err);
-  } else {
-    next();
-  }
-};
-// MiddleWare
-app.use(auth);
 
 // Serve static files
 app.use(express.static(path.join(__dirname, "public")));
